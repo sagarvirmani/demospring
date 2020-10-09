@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,18 @@ public class HomeController {
 			// add comment
 		}
 		return userlist;
+	}
+	
+	@RequestMapping("checkall")
+	@ResponseBody
+	public User checkall()
+	{
+		User u1=new User();
+		u1.setSid(0001);
+		u1.setPassword("rererer");
+		
+		
+		return u1;
 	}
 	
 }
