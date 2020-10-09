@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
@@ -31,13 +32,15 @@ public class HomeController {
 	}
 	
 	@RequestMapping("findall")
-	public void getall()
+	@ResponseBody
+	public List<User> getall()
 	{
 		List<User> userlist=repo.findAll();
 		for(User a:userlist)
 		{
 			System.out.println(a.getSid()+"    "+a.getPassword());
 		}
+		return userlist;
 	}
 	
 }
